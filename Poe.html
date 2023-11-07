@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edgar Allan Poe's Macabre Verses</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.css'></script>
+</head>
+<body>
+    <header>The Original Spooky Boy: Edgar Allan Poe's Macabre Verses 
+        <!--Images at top left and right-->
+        <img src="white-crow.png" alt="Photo of cartoon crow" id="upper-right-image"> 
+        <img src="Edgar-Allan-Poe.png" alt="Cartoon photo of Edgar Allan Poe" id="upper-left-image">
+    </header>
+    <main>
+        <!--Font Size Adjustment Button-->
+        <button id="fontSizeButton">Aa</button>
+
+        <!--About Button and button container, message to pop up when clicked on-->
+        <div class="about-button-container"></div>
+            <button id="aboutButton">?</button>
+            <div class="hover-message">Enter an Edgar Allan Poe poem title into the text box below or select one from the list. <br> The chosen poem will then display for you to read.</div>
+        
+            <!--Input instructions in rhyme-->
+        <h4>
+            Summon the poem prose you desire,<br>
+            From Edgar Allan Poe's eerie empire:
+        </h4>
+
+        <!--Poem Title Input and submit button-->
+        <input type="text" id="messageInput" placeholder="Enter poem title">
+        <button id="submitButton" onclick="openPopupByInput()">Summon</button>
+
+        <!--Input instructions in rhyme-->
+        <h4>
+            Though if you're feeling weary,<br>
+            Select a title, dark and dreary:
+        </h4>
+
+        <!--Poem title clickable list; divided into 2 columns-->
+        <div class="splitList">
+            <ul id="leftList">
+                <li class="poemTitle">Alone</li>
+                <li class="poemTitle">Al Aaraaf</li>
+                <li class="poemTitle">An Acrostic</li>
+                <li class="poemTitle">Annabel Lee</li>
+                <li class="poemTitle">The Bells</li>
+                <li class="poemTitle">Beloved Physician</li>
+                <li class="poemTitle">Bridal Ballad</li>        
+                <li class="poemTitle">The City in the Sea</li>
+                <li class="poemTitle">The Coliseum</li>
+                <li class="poemTitle">The Conqueror Worm</li>
+                <li class="poemTitle">Deep in Earth</li>
+                <li class="poemTitle">The Divine Right of Kings</li>
+                <li class="poemTitle">The Doomed City</li>
+                <li class="poemTitle">The Dream</li>        
+                <li class="poemTitle">A Dream</li>
+                <li class="poemTitle">Dream-Land</li>
+                <li class="poemTitle">A Dream Within A Dream</li>
+                <li class="poemTitle">The Duc de L'Omelette</li>        
+                <li class="poemTitle">The Eavesdropper</li>        
+                <li class="poemTitle">Eldorado</li>
+                <li class="poemTitle">The Eldorado</li>        
+                <li class="poemTitle">Elizabeth</li>
+                <li class="poemTitle">An Enigma</li>
+                <li class="poemTitle">Enigma</li>
+                <li class="poemTitle">Epigram for Wall Street</li>
+                <li class="poemTitle">Eulalie</li>
+                <li class="poemTitle">Evangeline</li>
+                <li class="poemTitle">Evening Star</li>
+                <li class="poemTitle">Fairy-Land</li>
+                <li class="poemTitle">Fanny</li>
+                <li class="poemTitle">For Annie</li>
+                <li class="poemTitle">The Haunted Palace</li>
+                <li class="poemTitle">The Happiest Day</li>
+                <li class="poemTitle">Hymn</li>
+                <li class="poemTitle">Imitation</li>
+                <li class="poemTitle">Impromptu. To Kate Carol</li>
+                <li class="poemTitle">Israfel</li>        
+                <li class="poemTitle">The Lake</li>
+                <li class="poemTitle">The Lake - To -  - </li>
+                <li class="poemTitle">Lenore</li>
+            </ul>
+            <ul id="rightList">
+                <li class="poemTitle">Lines on Ale</li>
+                <li class="poemTitle">Lines on Joe Locke</li>
+                <li class="poemTitle">O, Tempora! O, Mores!</li>        
+                <li class="poemTitle">The Oblong Box</li>
+                <li class="poemTitle">A Pæan</li>
+                <li class="poemTitle">Poetry</li>
+                <li class="poemTitle">The Raven</li>
+                <li class="poemTitle">Romance</li>
+                <li class="poemTitle">Serenade</li>
+                <li class="poemTitle">Silence</li>
+                <li class="poemTitle">The Sleeper</li>
+                <li class="poemTitle">Song</li>
+                <li class="poemTitle">Sonnet - To Science</li>
+                <li class="poemTitle">Sonnet - To Zante</li>        
+                <li class="poemTitle">The Spectacles</li>
+                <li class="poemTitle">Spirits of the Dead</li>
+                <li class="poemTitle">Spiritual Song</li>
+                <li class="poemTitle">Stanzas</li>
+                <li class="poemTitle">Tamerlane</li>
+                <li class="poemTitle">To --</li>
+                <li class="poemTitle">To --</li>
+                <li class="poemTitle">To -- --</li>
+                <li class="poemTitle">To F--</li>
+                <li class="poemTitle">To F--s S. O--d</li>
+                <li class="poemTitle">To Helen</li>
+                <li class="poemTitle">To Helen</li>
+                <li class="poemTitle">To Isaac Lea</li>
+                <li class="poemTitle">To M--</li>
+                <li class="poemTitle">To M. L. S--</li>
+                <li class="poemTitle">To Margaret</li>
+                <li class="poemTitle">To Marie Louise</li>
+                <li class="poemTitle">To Miss Louise Olivia Hunter</li>
+                <li class="poemTitle">To My Mother</li>
+                <li class="poemTitle">To Octavia</li>
+                <li class="poemTitle">To One in Paradise</li>
+                <li class="poemTitle">To The River</li>
+                <li class="poemTitle">Ulalume</li>
+                <li class="poemTitle">A Valentine</li>
+                <li class="poemTitle">The Valley of Unrest</li>
+            </ul>
+        </div>
+
+        <!--Script to allow popup to occur when when title is clicked, input is entered and button is clicked (or enter button is pushed)-->
+        <script>
+            function openPopup(poemTitle) {
+                const popupWindow = window.open('poem-popup.html', 'Poem Popup', 'width=600, height=400');
+                popupWindow.poemTitle = poemTitle;
+            };
+            function openPopupByInput() {
+                const poemTitle = document.getElementById('messageInput').value;
+                openPopup(poemTitle)
+            };
+            document.getElementById('messageInput').addEventListener('click', function (event){
+                if (event.target && event.target.matches('.poemTitle')) {
+                    var selectedPoemTitle = Event.target.textContent;
+                    openPopup(selectedPoemTitle);
+                }
+            });
+            document.getElementById('messageInput').addEventListener('keypress', function(event) {
+                if (event.key == 'Enter') {
+                    event.preventDefault();
+                    openPopupByInput()
+                }
+            });
+            document.getElementById('leftList').addEventListener('click', function (event) {
+                if (event.target && event.target.matches('.poemTitle')) {
+                    var selectedPoemTitle = event.target.textContent;
+                    openPopup(selectedPoemTitle);
+                }
+            });
+            document.getElementById('rightList').addEventListener('click', function (event) {
+                if (event.target && event.target.matches('.poemTitle')) {
+                    var selectedPoemTitle = event.target.textContent;
+                    openPopup(selectedPoemTitle);
+                }
+            });
+        </script>
+    </main>
+    <script src='main.js'></script>
+</body>
+</html>
