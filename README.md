@@ -6,7 +6,7 @@ Microservice uses Flask to achieve the request, data retrieval, and response.
 
 You can request data from the microservice by using an HTTP GET request which will need a query parameter which should be the title of the poem.
 Example for the request using python:
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # This should be the URL for the microservice
 endpoint: "http://127.0.0.1:5000/poe_search"
 
@@ -17,7 +17,7 @@ query_param = {"title" : "Lenore"}
 HTTP_response = requests.get(url, query_param=query_param
 
 return HTTP_response.json())
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Data will be returned in a json format. If poem is not found, error message containing "poem not found" will be returned. If found, json response will contain contents of poem.
 User can insert data into HTML so poem will be displayed on screen.
