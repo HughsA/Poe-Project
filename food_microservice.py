@@ -9,6 +9,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 food_file_path = os.path.join(dir_path, 'Food.json')
 content_file_path = os.path.join(dir_path, 'Content.json')
 
+
 # Initialize Flask app
 food_app = Flask(__name__)
 
