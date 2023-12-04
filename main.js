@@ -35,7 +35,7 @@ function openPopupWithData(poemTitle, poemData) {
 
 // Function to fetch poem data and open popup
 function fetchAndDisplayPoem(poemTitle) {
-  fetch(`http://127.0.0.1:5000/poe_search?title=${encodeURIComponent(poemTitle)}`)
+  fetch(`https://poe-microservice-cc20096967fe.herokuapp.com/poems?name=${encodeURIComponent(poemTitle)}`)
       .then(response => response.json())
       .then(data => {
           // Assuming 'data' contains the poem text or related information
