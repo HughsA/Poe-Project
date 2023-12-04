@@ -1,5 +1,13 @@
 from flask import Flask, request, jsonify
 import json
+import os
+
+# Get the directory of the current file
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+# Now use dir_path to construct an absolute path for food.json
+food_file_path = os.path.join(dir_path, 'Food.json')
+content_file_path = os.path.join(dir_path, 'Content.json')
 
 # Initialize Flask app
 food_app = Flask(__name__)
@@ -12,8 +20,7 @@ def search_food():
     # Retrieve the food item from the query parameter
     food = request.args.get('food', '').lower()
 
-    # Open and load the first JSON file containing the food database
-    with open('food.json') as file:
+    with open(food_file_path) as file:  # Use the absolute path
         foods = json.load(file)
 
         # Search for the food item in the JSON data
@@ -33,12 +40,12 @@ def search_food():
 
         # If the food item is not found
         return jsonify({"error": "Food item not found"})
-    
-# Finds the json objects in content.json that have the corresponding food_id to id_num    
+
+# Finds the json objects in content.json that have the corresponding food_id to id_num
 def search_contents(id_num):
-    # Open and load the contents.json file
-    with open('content.json') as contents_file:
-        contents = json.load(contents_file)
+
+    with open(content_file_path) as file:
+        contents = json.load(file)
 
         # Gather all matching contents
         matching_contents = [content for content in contents if content.get('food_id') == id_num]
