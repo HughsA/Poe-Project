@@ -13,39 +13,42 @@ content_file_path = os.path.join(dir_path, 'Content.json')
 food_app = Flask(__name__)
 
 # Route to handle food search
-@food_app.route('/food_search', methods=['GET'])
+@food_app.route('/food_macros', methods=['GET'])
 
-# Finds the food's ID number in food.json
-def food_search():
-    # Retrieve the food item from the query parameter
+# Finds the macro information of the food
+def food_macros():
     food = request.args.get('food', '').lower()
+    matching_contents = food_search(food)
+    
+    #Determines if macro content is available
+    if matching_contents:
+        nutrients = search_matches(matching_contents)
+        return jsonify(nutrients)
+    else:
+        return jsonify({"error": "Content for the given food item not found"})
+    
+# Finds the food's ID number in food.json
+def food_search(food):
 
-    with open(food_file_path) as file:  # Use the absolute path
+    # Opens json file for search
+    with open(food_file_path) as file:  
         foods = json.load(file)
 
         # Search for the food item in the JSON data
         for food_item in foods:
             if food == food_item.get('name', '').lower():
-                # If found, retrieve the 'id' value
                 id_num = food_item.get('id')
-
-                # Use the id_num to search in contents.json
                 matching_contents = search_contents(id_num)
-                if matching_contents:
-                    # Use the matching contents to find the nutrients
-                    nutrients = search_matches(matching_contents)
-                    return jsonify(nutrients)
-                else:
-                    return jsonify({"error": "Content for the given food item not found"})
-
-        # If the food item is not found
+    
         return jsonify({"error": "Food item not found"})
 
-
+# Route to handle deletion of food
+@food_app.route('/delete_food', methods=['DELETE'])
 
 # Finds the json objects in content.json that have the corresponding food_id to id_num
 def search_contents(id_num):
 
+    # Opens json file 
     with open(content_file_path) as file:
         contents = json.load(file)
 
@@ -54,9 +57,9 @@ def search_contents(id_num):
 
         return matching_contents
 
-    # If no matching content is found
     return None
 
+# Searches for the macro data in matches
 def search_matches(matching_contents):
     nutrients = {
         "protein": "Information not available",
