@@ -16,7 +16,7 @@ food_app = Flask(__name__)
 @food_app.route('/food_search', methods=['GET'])
 
 # Finds the food's ID number in food.json
-def search_food():
+def food_search():
     # Retrieve the food item from the query parameter
     food = request.args.get('food', '').lower()
 
@@ -40,6 +40,8 @@ def search_food():
 
         # If the food item is not found
         return jsonify({"error": "Food item not found"})
+
+
 
 # Finds the json objects in content.json that have the corresponding food_id to id_num
 def search_contents(id_num):
