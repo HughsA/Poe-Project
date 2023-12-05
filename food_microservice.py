@@ -39,7 +39,8 @@ def food_search(food):
             if food == food_item.get('name', '').lower():
                 id_num = food_item.get('id')
                 matching_contents = search_contents(id_num)
-    
+                return matching_contents
+            
         return jsonify({"error": "Food item not found"})
 
 # Route to handle deletion of food
